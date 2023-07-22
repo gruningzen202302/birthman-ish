@@ -9,8 +9,8 @@
                           :type "input"
                           :message "Who's birthday is it?"}]))
 
-(p/let [x (inquirer/prompt questions)]
-  (println x)) 
+(p/let [answers (inquirer/prompt questions)]
+  (println answers)) 
 
 (comment
   moment () .year ()
