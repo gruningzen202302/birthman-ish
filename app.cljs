@@ -1,13 +1,16 @@
 (ns app
   (:require ["moment$default" :as moment]
-            ["inquirer$default" :as inquirer]))
+            ["inquirer$default" :as inquirer]
+            [promesa.core :as p]))
 
-(println "Hello, World from app.cljs!")
+(println "Questionaire ")
 
 (def questions (clj->js[{ :name "name" 
                           :type "input"
                           :message "Who's birthday is it?"}]))
-(inquirer/prompt questions)
+
+(p/let [x (inquirer/prompt questions)]
+  (println x)) 
 
 (comment
   moment () .year ()
