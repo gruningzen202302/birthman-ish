@@ -12,7 +12,8 @@
                          :type "number"
                          :message "What day is their birthday?"}]))
 
-(p/let [answers (inquirer/prompt questions)
+(p/let [_answers (inquirer/prompt questions)
+        answers (js->clj _answers :keywordize-keys true) 
         name (.-name answers)
         day (.-day answers)]
   (println answers)) 
