@@ -10,7 +10,13 @@
                           :message "Who's birthday is it?"}
                         {:name "day"
                          :type "number"
-                         :message "What day is their birthday?"}]))
+                         :message "What day is their birthday?"
+                         :validate (fn [v](< 0 v 32))}
+                        {:name "month"
+                         :type "list"
+                         :choices (moment/months)}]))
+
+(moment/months)
 
 (p/let [_answers (inquirer/prompt questions)
         answers (js->clj _answers :keywordize-keys true) 
