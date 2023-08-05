@@ -16,15 +16,13 @@
                          :type "list"
                          :choices (moment/months)}]))
 
-(moment/months)
-
 (p/let [_answers (inquirer/prompt questions)
         answers (js->clj _answers :keywordize-keys true) 
-        name (.-name answers)
-        day (.-day answers)]
-  (println answers)) 
+        {:keys [name day month]} answers] 
+  (prn "Saving birthday for" name day month))
 
 (comment
+  (moment/months) 
   moment () .year ()
   (.year (moment))
   )
